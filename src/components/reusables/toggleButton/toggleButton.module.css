@@ -1,0 +1,26 @@
+.toggle {
+  width: 2em;
+  background: #282F35;
+  box-shadow: inset -1.6px -1.6px 4.9px rgba(69, 77, 85, 0.25), inset 1.6px 1.3px 1.98px rgba(35, 40, 45, 0.7);
+  border: none;
+  border-radius: 1em;
+  outline: none;
+}
+.toggle.on {
+  background: linear-gradient(100.9deg, #FD2A22 7.36%, #FE6C57 95.45%);
+  box-shadow: 3px 3px 11px 2px rgba(209, 7, 0, 0.35), inset 1.6px 1.3px 1.98px rgba(0, 0, 0, 0.2);
+}
+.toggle div {
+  width: 1em;
+  height: 1em;
+  background: #4E565F;
+  box-shadow: -3px -3px 6px rgba(69, 77, 86, 0.52), 3px 3px 6px rgba(24, 30, 36, 0.65);
+  transform: scale(1.2);
+  border: 1px solid #4E565F;
+  border-radius: 50%;
+}
+.toggle.on div {
+  background: #A2ADB9;
+  transform: scale(1.2) translateX(1em);
+  border: 1px solid #A2ADB9;
+}

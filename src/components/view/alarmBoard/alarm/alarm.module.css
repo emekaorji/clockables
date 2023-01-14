@@ -1,0 +1,33 @@
+.alarm {
+  background: linear-gradient(134.17deg, #3F4850 4.98%, #363E46 94.88%);
+  box-shadow: -5px -5px 20px rgba(72, 83, 92, 0.35), 13px 14px 12px -6px rgba(35, 40, 45, 0.7);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 0.9em;
+  padding: 0.8em 1em;
+}
+.time {
+  font-size: 2em;
+  font-weight: 500;
+  opacity: 0.35;
+}
+.alarm.active .time {
+  opacity: 1;
+}
+.extras {
+  display: flex;
+  gap: 0.4em;
+  align-items: center;
+}
+.day {
+  font-size: 0.9em;
+  font-weight: 300;
+  opacity: 0.45;
+}
+.alarm.active .day {
+  opacity: 1;
+}
+.toggle {
+  font-size: 1.2em;
+}
