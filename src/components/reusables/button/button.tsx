@@ -24,6 +24,7 @@ const Button = ({
           getClassName(className) +
           getClassName(notext, styles.notext)
         }
+        {...props}
       >
         <div className={styles.icon}>{icon}</div>
         <div className={styles.text}>{children}</div>

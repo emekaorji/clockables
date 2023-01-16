@@ -1,15 +1,21 @@
 .board {
+  width: 22em;
   background: linear-gradient(158.53deg, #363E46 -25.92%, #2C343C 82.89%);
   mix-blend-mode: normal;
   box-shadow: -2px -5px 20px rgba(72, 83, 92, 0.35);
-  flex: 2;
   display: flex;
   gap: 0.4em;
   flex-direction: column;
   border-top-left-radius: 1em;
   border-bottom-left-radius: 1em;
-  overflow: hidden;
+  /* overflow: hidden; */
   position: relative;
+}
+.board.boardClosed {
+  width: 7.5em;
+}
+.board.boardClosed h1 {
+  visibility: hidden;
 }
 .main {
   overflow-y: scroll;
@@ -21,6 +27,9 @@
   padding: 1em 1.5em;
   position: sticky;
   top: 0;
+}
+.header h1 {
+  overflow: hidden;
 }
 .alarms {
   display: flex;
@@ -34,13 +43,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid red;
   position: absolute;
   bottom: 0;
-}
-.addButton {
-  /* position: absolute;
-  bottom: 2em;
-  left: 50%;
-  transform: translateX(-50%); */
 }

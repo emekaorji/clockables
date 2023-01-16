@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import styles from './clock.module.css';
 
 const Clock = () => {
@@ -6,30 +6,23 @@ const Clock = () => {
   const [minute, setMinute] = useState(0);
   const [hour, setHour] = useState(0);
 
-  const resetTime = useCallback(() => {
-    const date = new Date();
-    const currentSecond = date.getSeconds();
-    const currentMinute = date.getMinutes();
-    const currentHour = date.getHours();
-    setSecond(currentSecond * 6);
-    setMinute(currentMinute * 6);
-    setHour((currentHour + currentMinute / 60) * 30);
-  }, []);
-
   useEffect(() => {
-    resetTime();
-    window.onfocus = resetTime;
-  }, [resetTime]);
+    const worker = new Worker('/sw.js');
 
-  useEffect(() => {
-    const id = setInterval(() => {
-      setSecond((prev) => prev + 6);
-      setMinute((prev) => prev + 6 / 60);
-      setHour((prev) => prev + 30 / 3600);
-    }, 1000);
+    const getTime = (event: MessageEvent) => {
+      const newSecond = event.data.seconds;
+      const newMinute = event.data.minutes;
+      const newHour = event.data.hours;
+      setSecond(newSecond);
+      setMinute(newMinute);
+      setHour(newHour);
+    };
+
+    worker.addEventListener('message', getTime);
+    worker.postMessage('startTimer');
 
     return () => {
-      clearInterval(id);
+      worker.removeEventListener('message', getTime);
     };
   }, []);
 
